@@ -6,6 +6,7 @@ body.style.display = 'flex';
 body.style.flexDirection= 'column'
 body.style.justifyContent = 'space-between';
 body.style.alignItems = 'center'
+body.style.margin = '0px'
 
 const header = document.createElement('header')
 header.style.width = '150%'
@@ -78,18 +79,26 @@ bt.style.backgroundColor = 'aquamarine'
 bt.style.textAlign = 'center'
 bt.style.borderRadius = '50px'
 div2.appendChild(bt);
-bt.addEventListener(`click`, function (){
 
-let med = (nota1 + nota2 + nota3)/3
-console.log(`Olá, ${nome}, sua média é: ${med} .`)
+const resultado = document.createElement('p');
+resultado.style.marginTop = '20px';
+resultado.style.fontSize = '18px';
+div2.appendChild(resultado);
 
-})
+bt.addEventListener('click', function () {
+    let nomeValue = nome.value;
+    let nota1Value = parseFloat(nota1.value);
+    let nota2Value = parseFloat(nota2.value);
+    let nota3Value = parseFloat(nota3.value);
 
+        let med = (nota1Value + nota2Value + nota3Value) / 3;
+        resultado.textContent = `Olá, ${nomeValue}, sua média é: ${med.toFixed(2)}.`;
+    }
+);
+   
 const footer = document.createElement('footer')
 footer.style.width = '150%'
 footer.style.height = '8%'
 footer.style.display ='flex'
 footer.style.backgroundColor= 'blue'
 body.appendChild(footer)
- 
-
